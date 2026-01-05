@@ -52,17 +52,25 @@ const Gallery = () => {
 
   return (
     <div>
-      {/* Page Header */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-primary-500 to-primary-700 text-white">
-        <Container>
+      {/* Hero Section with Background Image */}
+      <section className="relative h-[400px] overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2000"
+            alt="Gallery"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-primary-500/70"></div>
+        </div>
+        <Container className="relative h-full flex items-center justify-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center"
+            className="text-center text-white"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Gallery</h1>
-            <p className="text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Gallery</h1>
+            <p className="text-lg md:text-xl text-gray-200">
               A glimpse into our work and the communities we serve
             </p>
           </motion.div>
