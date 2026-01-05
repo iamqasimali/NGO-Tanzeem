@@ -86,13 +86,13 @@ const Footer = () => {
             </div>
             <div className="mt-6">
               <p className="text-sm text-gray-300 mb-2">Get our newsletter</p>
-              <div className="flex">
+              <div className="flex w-full max-w-xs">
                 <input
                   type="email"
                   placeholder="Your email"
-                  className="flex-1 px-3 py-2 rounded-l-lg text-gray-900 text-sm focus:outline-none"
+                  className="w-full min-w-0 flex-1 px-3 py-2 rounded-l-lg bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-accent-400 border-0"
                 />
-                <button className="bg-accent-500 px-4 py-2 rounded-r-lg hover:bg-accent-600 transition-colors text-sm font-semibold">
+                <button className="bg-accent-500 px-4 py-2 rounded-r-lg hover:bg-accent-600 transition-colors text-sm font-semibold whitespace-nowrap flex-shrink-0">
                   Subscribe
                 </button>
               </div>
