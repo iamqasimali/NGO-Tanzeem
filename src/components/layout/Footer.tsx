@@ -110,6 +110,19 @@ const Footer = () => {
               Registered under Voluntary Social Welfare Agencies Ordinance 1961
             </p>
           </div>
+          <div className="text-center mt-4">
+            <p className="text-sm text-gray-300">
+              Developed by{' '}
+              <a
+                href="https://quickgemsolutions.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent-400 hover:text-accent-300 transition-colors underline"
+              >
+                Quick Gem Solutions
+              </a>
+            </p>
+          </div>
         </div>
       </Container>
     </footer>

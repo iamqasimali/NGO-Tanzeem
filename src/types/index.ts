@@ -38,12 +38,4 @@ export interface ContactInfo {
   email: string;
 }
 
-// Explicit exports for module resolution
-export type {
-  Program,
-  ImpactCard,
-  Stat,
-  NavLink,
-  SocialLink,
-  ContactInfo,
-};
+
