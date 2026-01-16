@@ -6,38 +6,56 @@ const Gallery = () => {
   const images = [
     {
       id: 1,
-      src: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800',
+      src: ' https://res.cloudinary.com/dpdl2nt0f/image/upload/v1768405518/NGO_11_f3jxo6.jpg',
       title: 'Education Programs',
       category: 'Education',
     },
     {
       id: 2,
-      src: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=800',
+      src: 'https://res.cloudinary.com/dpdl2nt0f/image/upload/v1768321625/NGO_4_aj43r2.jpg',
       title: 'Women Empowerment',
       category: 'Women Literacy',
     },
     {
       id: 3,
-      src: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800',
+      src: 'https://res.cloudinary.com/dpdl2nt0f/image/upload/v1768321624/NGO_2_iyfkzz.jpg',
       title: 'Healthcare Services',
       category: 'Health',
     },
     {
       id: 4,
-      src: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=800',
+      src: 'https://res.cloudinary.com/dpdl2nt0f/image/upload/v1768405519/NGO_10_dva6fk.jpg',
       title: 'Agriculture Development',
       category: 'Agriculture',
     },
     {
       id: 5,
-      src: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800',
+      src: 'https://res.cloudinary.com/dpdl2nt0f/image/upload/v1768405519/NGO_9_szizco.jpg',
       title: 'Community Gatherings',
       category: 'Community',
     },
     {
       id: 6,
-      src: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800',
+      src: 'https://res.cloudinary.com/dpdl2nt0f/image/upload/v1768405520/NGO_8_bkmkat.jpg',
       title: 'School Buildings',
+      category: 'Education',
+    },
+    {
+      id: 7,
+      src: 'https://res.cloudinary.com/dpdl2nt0f/image/upload/v1768321625/NGO_6_uxuq1e.jpg',
+      title: 'Education Programs',
+      category: 'Education',
+    },
+    {
+      id: 8,
+      src: 'https://res.cloudinary.com/dpdl2nt0f/image/upload/v1768405875/NGO_13_ybmuvl.jpg',
+      title: 'Education Programs',
+      category: 'Education',
+    },
+    {
+      id: 9,
+      src: 'https://res.cloudinary.com/dpdl2nt0f/image/upload/v1768405875/NGO_12_tdaxad.jpg',
+      title: 'Education Programs',
       category: 'Education',
     },
   ];

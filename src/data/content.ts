@@ -112,8 +112,8 @@ export const socialLinks: SocialLink[] = [
 
 export const contactInfo: ContactInfo = {
   address: 'Khumra Roundu, Gilgit-Baltistan, Pakistan',
-  phone: '+92 XXX XXXXXXX',
-  email: 'info@tanzeemfalah.org',
+  phone: '+92 355 4196378  +92 341 8907668',
+  email: 'falahinsaniyat1122a@gmail.com',
 };
 
 export const organizationInfo = {

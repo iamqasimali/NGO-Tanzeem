@@ -122,15 +122,15 @@ const Donate = () => {
                     </div>
                     <div>
                       <div className="text-sm text-gray-600 mb-1">Account Number</div>
-                      <div className="font-semibold text-primary-500">XXXX-XXXX-XXXX-XXXX</div>
+                      <div className="font-semibold text-primary-500">0002876427</div>
                     </div>
-                    <div>
+                    {/* <div>
                       <div className="text-sm text-gray-600 mb-1">Branch Code</div>
                       <div className="font-semibold text-primary-500">XXXX</div>
-                    </div>
+                    </div> */}
                     <div>
                       <div className="text-sm text-gray-600 mb-1">IBAN</div>
-                      <div className="font-semibold text-primary-500">PK XX JSBL XXXX XXXX XXXX XXXX</div>
+                      <div className="font-semibold text-primary-500">PK37JSBL9219000002876427</div>
                     </div>
                     <div>
                       <div className="text-sm text-gray-600 mb-1">Swift Code</div>
