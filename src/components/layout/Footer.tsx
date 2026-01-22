@@ -84,7 +84,7 @@ const Footer = () => {
                 </a>
               ))}
             </div>
-            <div className="mt-6">
+            {/* <div className="mt-6">
               <p className="text-sm text-gray-300 mb-2">Get our newsletter</p>
               <div className="flex w-full max-w-xs">
                 <input
@@ -96,7 +96,7 @@ const Footer = () => {
                   Subscribe
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 

@@ -6,6 +6,7 @@ import Programs from './pages/Programs';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import Donate from './pages/Donate';
+import WhatsAppFloat from './components/common/WhatsAppFloat';
 
 function App() {
   return (
@@ -18,7 +19,9 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/donate" element={<Donate />} />
+
         </Routes>
+        <WhatsAppFloat />
       </Layout>
     </Router>
   );
