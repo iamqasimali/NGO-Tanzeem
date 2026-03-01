@@ -27,10 +27,10 @@ const About = () => {
   ];
 
   const leaders = [
-    { title: 'Executive Director', description: 'Overall leadership and strategic direction' },
-    { title: 'Program Manager', description: 'Oversees program implementation and monitoring' },
-    { title: 'Community Liaison', description: 'Connects with local communities and stakeholders' },
-    { title: 'Finance Officer', description: 'Manages financial operations and transparency' },
+    { title: 'President', description: 'Shujaat Ali' },
+    { title: 'Executive Director', description: 'Muhammad Younus' },
+    { title: 'Community Liaison', description: 'TBD' },
+    { title: 'Finance Officer', description: 'TBD' },
   ];
 
   return (
