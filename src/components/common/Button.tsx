@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 
 interface ButtonProps {
   children: ReactNode;
@@ -10,6 +11,9 @@ interface ButtonProps {
   type?: 'button' | 'submit' | 'reset';
 }
 
+const focusRing =
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2';
+
 const Button = ({
   children,
   variant = 'primary',
@@ -19,7 +23,7 @@ const Button = ({
   className = '',
   type = 'button',
 }: ButtonProps) => {
-  const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 hover:transform hover:scale-105';
+  const baseStyles = `inline-flex cursor-pointer items-center justify-center font-semibold rounded-lg transition-colors duration-200 ${focusRing}`;
 
   const variantStyles = {
     primary: 'bg-accent-500 text-white hover:bg-accent-600 shadow-lg hover:shadow-xl',
@@ -28,16 +32,24 @@ const Button = ({
   };
 
   const sizeStyles = {
-    sm: 'px-4 py-2 text-sm',
-    md: 'px-6 py-3 text-base',
-    lg: 'px-8 py-4 text-lg',
+    sm: 'min-h-[44px] px-4 py-2 text-sm',
+    md: 'min-h-[44px] px-6 py-3 text-base',
+    lg: 'min-h-[48px] px-8 py-4 text-lg',
   };
 
   const classes = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
 
   if (href) {
+    const isInternal = href.startsWith('/') && !href.startsWith('//');
+    if (isInternal) {
+      return (
+        <Link to={href} className={classes}>
+          {children}
+        </Link>
+      );
+    }
     return (
-      <a href={href} className={classes}>
+      <a href={href} className={classes} rel="noopener noreferrer" target="_blank">
         {children}
       </a>
     );

@@ -69,7 +69,9 @@ const Programs = () => {
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2000"
-            alt="Our Programs"
+            alt=""
+            decoding="async"
+            fetchPriority="high"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-primary-500/70"></div>
@@ -110,6 +112,8 @@ const Programs = () => {
                       <img
                         src={program.image}
                         alt={program.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
@@ -156,15 +160,17 @@ const Programs = () => {
               Your contribution helps us expand our reach and create lasting impact in more communities
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/donate">
-                <button className="px-8 py-3 bg-accent-500 hover:bg-accent-600 text-white rounded-md transition-colors font-semibold">
-                  Donate Now
-                </button>
+              <Link
+                to="/donate"
+                className="inline-flex min-h-[48px] cursor-pointer items-center justify-center rounded-md bg-accent-500 px-8 py-3 font-semibold text-white transition-colors hover:bg-accent-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-600"
+              >
+                Donate Now
               </Link>
-              <Link to="/contact">
-                <button className="px-8 py-3 bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary-500 rounded-md transition-colors font-semibold">
-                  Get Involved
-                </button>
+              <Link
+                to="/contact"
+                className="inline-flex min-h-[48px] cursor-pointer items-center justify-center rounded-md border-2 border-white bg-transparent px-8 py-3 font-semibold text-white transition-colors hover:bg-white hover:text-primary-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-600"
+              >
+                Get Involved
               </Link>
             </div>
           </motion.div>

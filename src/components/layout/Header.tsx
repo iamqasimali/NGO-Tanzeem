@@ -30,7 +30,7 @@ const Header = () => {
       <Container>
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-3 cursor-pointer rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2">
             <img
               src="/assets/logo.png"
               alt="Tanzeem Falah Insaniyat"
@@ -50,7 +50,7 @@ const Header = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-colors duration-200 ${
+                className={`cursor-pointer rounded-md px-1 text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 ${
                   isActive(link.path)
                     ? 'text-accent-500'
                     : 'text-gray-700 hover:text-accent-500'
@@ -66,8 +66,11 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-gray-700 hover:text-accent-500 transition-colors"
+            type="button"
+            className="lg:hidden min-h-[44px] min-w-[44px] p-2 text-gray-700 hover:text-accent-500 transition-colors cursor-pointer rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-nav"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -76,12 +79,12 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <nav className="lg:hidden mt-4 pb-4 border-t border-gray-200 pt-4 space-y-3">
+          <nav id="mobile-nav" className="lg:hidden mt-4 pb-4 border-t border-gray-200 pt-4 space-y-3">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`block py-2 text-base font-medium transition-colors ${
+                className={`block cursor-pointer rounded-md py-2 text-base font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 ${
                   isActive(link.path)
                     ? 'text-accent-500'
                     : 'text-gray-700 hover:text-accent-500'

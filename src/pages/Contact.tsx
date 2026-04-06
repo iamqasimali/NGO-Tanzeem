@@ -12,18 +12,21 @@ const Contact = () => {
     subject: '',
     message: '',
   });
+  const [submitState, setSubmitState] = useState<'idle' | 'submitting' | 'success'>('idle');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! We will get back to you soon.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setSubmitState('submitting');
+    window.setTimeout(() => {
+      setSubmitState('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    }, 400);
   };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
+    if (submitState === 'success') setSubmitState('idle');
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -37,7 +40,9 @@ const Contact = () => {
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?q=80&w=2000"
-            alt="Contact Us"
+            alt=""
+            decoding="async"
+            fetchPriority="high"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-primary-500/70"></div>
@@ -119,6 +124,14 @@ const Contact = () => {
               <h2 className="text-3xl font-bold text-primary-500 mb-6 text-center">
                 Send us a Message
               </h2>
+              {submitState === 'success' && (
+                <p
+                  role="status"
+                  className="mb-6 rounded-lg border border-accent-500/30 bg-accent-50 px-4 py-3 text-center text-primary-700"
+                >
+                  Thank you for your message. We will get back to you soon.
+                </p>
+              )}
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -184,10 +197,12 @@ const Contact = () => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-accent-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-accent-600 transition-colors flex items-center justify-center gap-2"
+                  disabled={submitState === 'submitting'}
+                  aria-busy={submitState === 'submitting'}
+                  className="w-full min-h-[48px] cursor-pointer bg-accent-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-accent-600 transition-colors flex items-center justify-center gap-2 disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2"
                 >
-                  <Send size={20} />
-                  Send Message
+                  <Send size={20} aria-hidden />
+                  {submitState === 'submitting' ? 'Sending…' : 'Send Message'}
                 </button>
               </form>
             </Card>

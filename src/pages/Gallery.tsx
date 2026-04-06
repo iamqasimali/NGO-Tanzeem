@@ -75,7 +75,9 @@ const Gallery = () => {
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2000"
-            alt="Gallery"
+            alt=""
+            decoding="async"
+            fetchPriority="high"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-primary-500/70"></div>
@@ -99,12 +101,18 @@ const Gallery = () => {
       <section className="py-20 bg-gray-50">
         <Container>
           {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div
+            className="flex flex-wrap justify-center gap-3 mb-12"
+            role="group"
+            aria-label="Filter gallery by category"
+          >
             {categories.map((category) => (
               <button
                 key={category}
+                type="button"
                 onClick={() => setActiveCategory(category)}
-                className={`px-6 py-2 rounded-full font-semibold transition-all ${
+                aria-pressed={activeCategory === category}
+                className={`min-h-[44px] cursor-pointer rounded-full px-5 py-2 font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 ${
                   activeCategory === category
                     ? 'bg-accent-500 text-white shadow-lg'
                     : 'bg-white text-gray-700 hover:bg-gray-100'
@@ -129,7 +137,9 @@ const Gallery = () => {
                   <img
                     src={image.src}
                     alt={image.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute bottom-0 left-0 right-0 p-6 text-white">

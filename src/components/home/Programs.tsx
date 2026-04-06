@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { programs } from '../../data/content';
 import Container from '../common/Container';
@@ -38,17 +39,22 @@ const Programs = () => {
                   <img
                     src={program.image}
                     alt={program.title}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
                   <h3 className="text-xl font-bold text-primary-500 mb-3">{program.title}</h3>
                   <p className="text-gray-600 mb-4 flex-1">{program.description}</p>
-                  <button className="text-accent-500 font-semibold flex items-center hover:text-accent-600 transition-colors group">
+                  <Link
+                    to="/programs"
+                    className="text-accent-500 font-semibold inline-flex items-center hover:text-accent-600 transition-colors group cursor-pointer"
+                  >
                     Learn More
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
+                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden />
+                  </Link>
                 </div>
               </Card>
             </motion.div>

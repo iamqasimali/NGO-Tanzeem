@@ -40,7 +40,9 @@ const About = () => {
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1668752752839-1ca9a96331fa?q=80&w=2000"
-            alt="About Us"
+            alt=""
+            decoding="async"
+            fetchPriority="high"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-primary-500/70"></div>

@@ -19,7 +19,9 @@ const About = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?q=80&w=800"
-                alt="Helping hands"
+                alt="Volunteers supporting community programs"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>

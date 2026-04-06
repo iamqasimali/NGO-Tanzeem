@@ -1,13 +1,18 @@
+import type { FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
-import { navLinks, organizationInfo, contactInfo } from '../../data/content';
+import { navLinks, organizationInfo, contactInfo, socialLinks } from '../../data/content';
 import Container from '../common/Container';
 
+const socialIcons = {
+  Facebook,
+  Twitter,
+  Instagram,
+} as const;
+
 const Footer = () => {
-  const socialIcons = {
-    Facebook: Facebook,
-    Twitter: Twitter,
-    Instagram: Instagram,
+  const handleNewsletterSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
   };
 
   return (
@@ -41,7 +46,7 @@ const Footer = () => {
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-sm text-gray-300 hover:text-accent-400 transition-colors"
+                    className="text-sm text-gray-300 hover:text-accent-400 transition-colors cursor-pointer rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-500"
                   >
                     {link.name}
                   </Link>
@@ -73,30 +78,50 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-bold mb-4">Follow Us</h4>
             <div className="flex space-x-4">
-              {Object.entries(socialIcons).map(([name, Icon]) => (
-                <a
-                  key={name}
-                  href="#"
-                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent-500 transition-colors"
-                  aria-label={name}
-                >
-                  <Icon size={20} />
-                </a>
-              ))}
+              {socialLinks.map((social) => {
+                const Icon = socialIcons[social.icon as keyof typeof socialIcons];
+                if (!Icon) return null;
+                return (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    className="min-h-[44px] min-w-[44px] cursor-pointer bg-white/10 rounded-full flex items-center justify-center hover:bg-accent-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-500"
+                    aria-label={`${organizationInfo.name} on ${social.name}`}
+                    {...(social.url.startsWith('http') ? { rel: 'noopener noreferrer', target: '_blank' } : {})}
+                  >
+                    <Icon size={20} aria-hidden />
+                  </a>
+                );
+              })}
             </div>
-            {/* <div className="mt-6">
-              <p className="text-sm text-gray-300 mb-2">Get our newsletter</p>
-              <div className="flex w-full max-w-xs">
+            <div className="mt-6">
+              <p id="newsletter-label" className="text-sm text-gray-300 mb-2">
+                Get our newsletter
+              </p>
+              <form
+                className="flex w-full max-w-xs"
+                onSubmit={handleNewsletterSubmit}
+                aria-labelledby="newsletter-label"
+              >
+                <label htmlFor="footer-newsletter-email" className="sr-only">
+                  Email address for newsletter
+                </label>
                 <input
+                  id="footer-newsletter-email"
+                  name="email"
                   type="email"
+                  autoComplete="email"
                   placeholder="Your email"
-                  className="w-full min-w-0 flex-1 px-3 py-2 rounded-l-lg bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-accent-400 border-0"
+                  className="w-full min-w-0 flex-1 min-h-[44px] px-3 py-2 rounded-l-lg bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-accent-400 border-0"
                 />
-                <button className="bg-accent-500 px-4 py-2 rounded-r-lg hover:bg-accent-600 transition-colors text-sm font-semibold whitespace-nowrap flex-shrink-0">
+                <button
+                  type="submit"
+                  className="min-h-[44px] cursor-pointer bg-accent-500 px-4 py-2 rounded-r-lg hover:bg-accent-600 transition-colors text-sm font-semibold whitespace-nowrap flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-500"
+                >
                   Subscribe
                 </button>
-              </div>
-            </div> */}
+              </form>
+            </div>
           </div>
         </div>
 

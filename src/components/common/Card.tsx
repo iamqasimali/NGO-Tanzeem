@@ -8,7 +8,7 @@ interface CardProps {
 
 const Card = ({ children, className = '', hover = true }: CardProps) => {
   const hoverEffect = hover
-    ? 'hover:shadow-2xl hover:transform hover:scale-105 transition-all duration-300'
+    ? 'cursor-pointer hover:shadow-2xl transition-shadow duration-200'
     : '';
 
   return (

@@ -5,13 +5,15 @@ import Button from '../common/Button';
 
 const Hero = () => {
   return (
-    <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-green-300">
+    <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-primary-900">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2000"
-          alt="Community"
+          alt="Community volunteers and families in Baltistan"
           className="w-full h-full object-cover"
+          decoding="async"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-700/80"></div>
       </div>
