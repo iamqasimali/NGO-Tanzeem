@@ -92,22 +92,11 @@ export const stats: Stat[] = [
   },
 ];
 
+/** Set `url` to full https profile links when available; empty string hides the icon. */
 export const socialLinks: SocialLink[] = [
-  {
-    name: 'Facebook',
-    url: '#',
-    icon: 'Facebook',
-  },
-  {
-    name: 'Twitter',
-    url: '#',
-    icon: 'Twitter',
-  },
-  {
-    name: 'Instagram',
-    url: '#',
-    icon: 'Instagram',
-  },
+  { name: 'Facebook', url: '', icon: 'Facebook' },
+  { name: 'Twitter', url: '', icon: 'Twitter' },
+  { name: 'Instagram', url: '', icon: 'Instagram' },
 ];
 
 export const contactInfo: ContactInfo = {

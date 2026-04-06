@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Container from '../components/common/Container';
+import { useRouteSeo } from '../hooks/usePageSeo';
 
 const Gallery = () => {
+  useRouteSeo('/gallery');
   const images = [
     {
       id: 1,

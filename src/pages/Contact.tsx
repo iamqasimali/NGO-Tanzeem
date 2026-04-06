@@ -4,8 +4,10 @@ import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { contactInfo } from '../data/content';
 import Container from '../components/common/Container';
 import Card from '../components/common/Card';
+import { useRouteSeo } from '../hooks/usePageSeo';
 
 const Contact = () => {
+  useRouteSeo('/contact');
   const [formData, setFormData] = useState({
     name: '',
     email: '',

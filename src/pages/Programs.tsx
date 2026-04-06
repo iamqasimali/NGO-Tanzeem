@@ -5,8 +5,10 @@ import {
   BookOpen, Stethoscope, Baby, Sprout 
 } from 'lucide-react';
 import Container from '../components/common/Container';
+import { useRouteSeo } from '../hooks/usePageSeo';
 
 const Programs = () => {
+  useRouteSeo('/programs');
   const programs = [
     {
       id: 1,

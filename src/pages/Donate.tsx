@@ -2,8 +2,10 @@ import { motion } from 'framer-motion';
 import { GraduationCap, Heart, Users, Building2, Check, CreditCard } from 'lucide-react';
 import Container from '../components/common/Container';
 import Card from '../components/common/Card';
+import { useRouteSeo } from '../hooks/usePageSeo';
 
 const Donate = () => {
+  useRouteSeo('/donate');
   const impactAreas = [
     {
       icon: GraduationCap,

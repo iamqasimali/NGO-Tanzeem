@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import OrganizationJsonLd from '../seo/OrganizationJsonLd';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -20,6 +21,7 @@ const Layout = ({ children }: LayoutProps) => {
         {children}
       </main>
       <Footer />
+      <OrganizationJsonLd />
     </div>
   );
 };
