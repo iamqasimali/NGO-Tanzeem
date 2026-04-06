@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { Award, Target, Heart, Users, Eye, Handshake } from 'lucide-react';
 import Container from '../components/common/Container';
+import { useRouteSeo } from '../hooks/usePageSeo';
 
 const About = () => {
+  useRouteSeo('/about');
   const values = [
     {
       icon: Heart,

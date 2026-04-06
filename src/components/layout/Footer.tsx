@@ -15,6 +15,8 @@ const Footer = () => {
     e.preventDefault();
   };
 
+  const activeSocial = socialLinks.filter((s) => s.url.startsWith('http'));
+
   return (
     <footer className="bg-primary-500 text-white">
       <Container className="py-16">
@@ -77,23 +79,30 @@ const Footer = () => {
           {/* Social Media */}
           <div>
             <h4 className="text-lg font-bold mb-4">Follow Us</h4>
-            <div className="flex space-x-4">
-              {socialLinks.map((social) => {
-                const Icon = socialIcons[social.icon as keyof typeof socialIcons];
-                if (!Icon) return null;
-                return (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    className="min-h-[44px] min-w-[44px] cursor-pointer bg-white/10 rounded-full flex items-center justify-center hover:bg-accent-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-500"
-                    aria-label={`${organizationInfo.name} on ${social.name}`}
-                    {...(social.url.startsWith('http') ? { rel: 'noopener noreferrer', target: '_blank' } : {})}
-                  >
-                    <Icon size={20} aria-hidden />
-                  </a>
-                );
-              })}
-            </div>
+            {activeSocial.length > 0 ? (
+              <div className="flex flex-wrap gap-3">
+                {activeSocial.map((social) => {
+                  const Icon = socialIcons[social.icon as keyof typeof socialIcons];
+                  if (!Icon) return null;
+                  return (
+                    <a
+                      key={social.name}
+                      href={social.url}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      className="min-h-[44px] min-w-[44px] cursor-pointer bg-white/10 rounded-full flex items-center justify-center hover:bg-accent-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-500"
+                      aria-label={`${organizationInfo.name} on ${social.name}`}
+                    >
+                      <Icon size={20} aria-hidden />
+                    </a>
+                  );
+                })}
+              </div>
+            ) : (
+              <p className="text-sm text-gray-400 max-w-xs leading-relaxed">
+                Official social profile links will be published here soon.
+              </p>
+            )}
             <div className="mt-6">
               <p id="newsletter-label" className="text-sm text-gray-300 mb-2">
                 Get our newsletter
@@ -135,7 +144,15 @@ const Footer = () => {
               Registered under Voluntary Social Welfare Agencies Ordinance 1961
             </p>
           </div>
-          <div className="text-center mt-4">
+          <div className="text-center mt-4 space-y-2">
+            <p className="text-sm text-gray-300">
+              <Link
+                to="/privacy"
+                className="text-accent-400 hover:text-accent-300 transition-colors underline cursor-pointer"
+              >
+                Privacy Policy
+              </Link>
+            </p>
             <p className="text-sm text-gray-300">
               Developed by{' '}
               <a

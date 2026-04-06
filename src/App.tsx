@@ -9,6 +9,7 @@ const Programs = lazy(() => import('./pages/Programs'));
 const Gallery = lazy(() => import('./pages/Gallery'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Donate = lazy(() => import('./pages/Donate'));
+const Privacy = lazy(() => import('./pages/Privacy'));
 
 function PageFallback() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/donate" element={<Donate />} />
+            <Route path="/privacy" element={<Privacy />} />
           </Routes>
         </Suspense>
         <WhatsAppFloat />
